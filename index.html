@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Day</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1 class="title">My Day</h1>
+            <p class="date" id="current-date"></p>
+        </div>
+        <button class="themes-button" onclick="toggleThemesDropdown()">
+            <i>🎨</i> Themes
+        </button>
+    </div>
+    
+    <div class="themes-dropdown" id="themes-dropdown">
+        <div class="theme-option active" onclick="changeTheme('default')">
+            <div class="theme-preview beach"></div>
+            <span>Beach</span>
+        </div>
+        <div class="theme-option" onclick="changeTheme('mountains')">
+            <div class="theme-preview mountains"></div>
+            <span>Mountains</span>
+        </div>
+        <div class="theme-option" onclick="changeTheme('forest')">
+            <div class="theme-preview forest"></div>
+            <span>Forest</span>
+        </div>
+    </div>
+    
+    <div id="app-container">
+        <div class="welcome-card" id="welcome-card">
+            <div class="calendar-icon">📅✨</div>
+            <h2 class="welcome-title">Focus on your day</h2>
+            <p class="welcome-description">Get things done with My Day, a list that refreshes every day.</p>
+        </div>
+        
+        <div class="task-list" id="task-list"></div>
+    </div>
+    
+    <div class="task-input-container">
+        <div class="circle-icon"></div>
+        <input type="text" class="task-input" placeholder="Add a task" id="new-task-input">
+        <button class="add-btn" onclick="addTask()">+</button>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <input type="text" id="task-title" readonly>
+        <div id="task-desc-container"></div>
+        <textarea id="task-desc" placeholder="Add a description..."></textarea>
+        <button class="save-btn" onclick="saveDescription()">Save</button>
+    </div>
+
+    <script src="index.js">  </script>
+</body>
+</html>
