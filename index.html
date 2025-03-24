@@ -7,55 +7,106 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <div class="header-left">
-            <h1 class="title">My Day</h1>
-            <p class="date" id="current-date"></p>
+    <div class="categories-sidebar" id="categories-sidebar">
+        <div class="categories-header">
+            <h3>Categories</h3>
+            <button class="add-category-btn" onclick="showAddCategoryForm()">+</button>
         </div>
-        <button class="themes-button" onclick="toggleThemesDropdown()">
-            <i>🎨</i> Themes
-        </button>
-    </div>
-    
-    <div class="themes-dropdown" id="themes-dropdown">
-        <div class="theme-option active" onclick="changeTheme('default')">
-            <div class="theme-preview beach"></div>
-            <span>Beach</span>
+        <div class="add-category-form" id="add-category-form">
+            <input type="text" id="new-category-input" placeholder="Category name">
+            <button onclick="addCategory()">Add</button>
+            <button onclick="hideAddCategoryForm()">Cancel</button>
         </div>
-        <div class="theme-option" onclick="changeTheme('mountains')">
-            <div class="theme-preview mountains"></div>
-            <span>Mountains</span>
+        <div class="categories-list" id="categories-list">
+            <div class="category-item all-tasks active" onclick="filterTasks('all')">All Tasks</div>
         </div>
-        <div class="theme-option" onclick="changeTheme('forest')">
-            <div class="theme-preview forest"></div>
-            <span>Forest</span>
-        </div>
-    </div>
-    
-    <div id="app-container">
-        <div class="welcome-card" id="welcome-card">
-            <div class="calendar-icon">📅✨</div>
-            <h2 class="welcome-title">Focus on your day</h2>
-            <p class="welcome-description">Get things done with My Day, a list that refreshes every day.</p>
-        </div>
-        
-        <div class="task-list" id="task-list"></div>
-    </div>
-    
-    <div class="task-input-container">
-        <div class="circle-icon"></div>
-        <input type="text" class="task-input" placeholder="Add a task" id="new-task-input">
-        <button class="add-btn" onclick="addTask()">+</button>
-    </div>
-    
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" onclick="closeSidebar()">×</button>
-        <input type="text" id="task-title" readonly>
-        <div id="task-desc-container"></div>
-        <textarea id="task-desc" placeholder="Add a description..."></textarea>
-        <button class="save-btn" onclick="saveDescription()">Save</button>
     </div>
 
-    <script src="index.js">  </script>
+    <div class="main-content">
+        <div class="header">
+            <div class="header-left">
+                <h1 class="title">My Day</h1>
+                <p class="date" id="current-date"></p>
+            </div>
+            <button class="themes-button" onclick="toggleThemesDropdown()">
+                <i>🎨</i> Themes
+            </button>
+        </div>
+        
+        <div class="themes-dropdown" id="themes-dropdown">
+            <div class="theme-option active" onclick="changeTheme('default')">
+                <div class="theme-preview beach"></div>
+                <span>Beach</span>
+            </div>
+            <div class="theme-option" onclick="changeTheme('mountains')">
+                <div class="theme-preview mountains"></div>
+                <span>Mountains</span>
+            </div>
+            <div class="theme-option" onclick="changeTheme('forest')">
+                <div class="theme-preview forest"></div>
+                <span>Forest</span>
+            </div>
+        </div>
+        
+        <div id="app-container">
+            <div class="welcome-card" id="welcome-card">
+                <div class="calendar-icon">📅✨</div>
+                <h2 class="welcome-title">Focus on your day</h2>
+                <p class="welcome-description">Get things done with My Day, a list that refreshes every day.</p>
+                <p class="hint-text">Click on any task to edit details!</p>
+            </div>
+            
+            <div class="task-list" id="task-list"></div>
+        </div>
+        
+        <div class="task-input-container">
+            <div class="circle-icon"></div>
+            <input type="text" class="task-input" placeholder="Add a task" id="new-task-input">
+            <button class="add-btn" onclick="addTask()">+</button>
+        </div>
+        
+        <div class="sidebar" id="sidebar">
+            <button class="close-btn" onclick="closeSidebar()">×</button>
+            
+            <div class="sidebar-section">
+                <h3>Task Title</h3>
+                <input type="text" id="task-title" class="editable-input">
+                <button class="save-section-btn" onclick="saveTitle()">Save Title</button>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Category</h3>
+                <select id="task-category" class="editable-select">
+                    <option value="">No Category</option>
+                </select>
+                <button class="save-section-btn" onclick="saveCategory()">Save Category</button>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Priority</h3>
+                <select id="task-priority" class="editable-select">
+                    <option value="none">No Priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button class="save-section-btn" onclick="savePriority()">Save Priority</button>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Due Date</h3>
+                <input type="date" id="task-due" class="editable-input">
+                <button class="save-section-btn" onclick="saveDueDate()">Save Due Date</button>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Description</h3>
+                <textarea id="task-desc" class="editable-textarea" placeholder="Add a description..."></textarea>
+                <button class="save-section-btn" onclick="saveDescription()">Save Description</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
