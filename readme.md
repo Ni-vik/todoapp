@@ -109,3 +109,6 @@ The application adjusts layout for different screen sizes:
 - [ ] The delete button's cross is not centered 
 - [ ] No filtering based on priority 
 - [ ] No filtering based on completed tasks and pending tasks 
+- [ ] Send alert when task is empty 
+- [ ] Theme can also be stored in local storage (low priority)
+- [ ] The priority and completed button should be added to the categories bar 
