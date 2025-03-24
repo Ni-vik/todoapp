@@ -101,3 +101,11 @@ The application adjusts layout for different screen sizes:
 2. Begin adding tasks using the input field at the bottom
 3. Customize your experience with the themes button
 4. All changes are automatically saved in your browser
+
+
+## Tasks remaining
+- [ ] Refactoring of code and adding relevant comments 
+- [ ] The categories bar is not responsive. Works for tablets, laptop not for phone
+- [ ] The delete button's cross is not centered 
+- [ ] No filtering based on priority 
+- [ ] No filtering based on completed tasks and pending tasks 
